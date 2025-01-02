@@ -1,15 +1,13 @@
 from ultralytics import YOLO
-from multiprocessing import Process, freeze_support, set_start_method
 
-def foo():
-    print('hello')
+model = YOLO("yolov8n.pt")
 
-if __name__ == '__main__':
-    freeze_support()
-    set_start_method('spawn')
-    p = Process(target=foo)
-    p.start()
+results = model.train(data="data_conf.yaml", epochs=50, optimizer='SGD', project='YOLOv8-Experiments', name='run2', exist_ok=True)
+metrics = model.val()
+print(metrics)
 
-model = YOLO("yolov8n.yaml")
+model_default = YOLO("yolov8n.pt")
 
-results = model.train(data="data_conf.yaml", epochs=30, imgsz=640, batch=16, augment=True, freeze=5)
+results_default = model_default.train(data="coco128.yaml", epochs=50, lr0=0.01, project='YOLOv8-Experiments', name='run_default', exist_ok=True)
+metrics_default = model_default.val()
+print(metrics_default)

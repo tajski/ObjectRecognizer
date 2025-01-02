@@ -1,8 +1,6 @@
-path: D:/Users/meshu/PycharmProjects/ObjectRecognizer/data
-train: train/images
-val: val/images
-train_label_dir: train/labels
-val_label_dir: val/labels
+path: D:/Users/meshu/PycharmProjects/ObjectRecognizer/data2
+train: images/train
+val: images/val
 
 names:
   0: person
