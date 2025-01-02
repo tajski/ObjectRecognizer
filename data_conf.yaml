@@ -1,0 +1,9 @@
+path: D:/Users/meshu/PycharmProjects/ObjectRecognizer/data
+train: train/images
+val: val/images
+train_label_dir: train/labels
+val_label_dir: val/labels
+
+names:
+  0: person
+  1: fork
